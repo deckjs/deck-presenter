@@ -4,7 +4,7 @@ var entities = require('entities');
 //loads to global scope :(
 require('mermaid');
 
-module.exports = markdown; 
+module.exports = markdown;
 
 
 function markdown() {
@@ -15,19 +15,19 @@ function markdown() {
       if (/dia/.test(lang)) {
         return '<div class="mermaid">'+code+'</div>';
       }
-      
+
       return entities.decodeHTML(m.call(metaMd.marked.defaults.renderer, code, lang, escaped));
-      
+
     }
 
   }(metaMd.marked.defaults.renderer.code));
 
 
-  pollUntil(1000, function check() { 
+  pollUntil(1000, function check() {
     check.count = ~~(check.count) + 1;
-    return check.count > 12 || !!window.LiveReload 
+    return check.count > 12 || !!window.LiveReload
   }, function ready() {
-    LiveReload.addPlugin(MarkdownPlugin)  
+    LiveReload.addPlugin(MarkdownPlugin)
   });
 
   var style;
@@ -39,7 +39,7 @@ function markdown() {
               .indexOf.call(slide.children, slide.querySelector('ul'));
             var o = {};
             o[elix] = {li: {"font-size": size}};
-            this.custom(slide, o); 
+            this.custom(slide, o);
           },
           newline: function (slide) {
             slide.innerHTML =
@@ -68,26 +68,26 @@ function markdown() {
               var styles = Object.keys(o[elix]).map(function (attr) {
                 if (attr in slide.children[elix].style) {
                   return '';
-                } 
+                }
                 var id = slide.children[elix].id || Math.random()
                   .toString(36).split('.')[1].replace(/^([0-9]+)([a-z])/, '$2');
 
                 slide.children[elix].id = id;
                 return attr.split(',').map(function (a) {
                     return '#' + id + ' ' + a;
-                  }).join(',') + '{' + 
+                  }).join(',') + '{' +
                     Object.keys(o[elix][attr]).map(function (a) {
                       return a + ':' + o[elix][attr][a]
                     }).join(';') + '}';
               }).join('\n');
 
               if (styles) {
-                style.innerHTML += styles;  
+                style.innerHTML += styles;
               }
 
             });
           }})
-  
+
 
   return markdown.singleton;
 }
@@ -110,7 +110,7 @@ MarkdownPlugin.prototype.reload = function (path, opts) {
 }
 
 function pollUntil(t, fn, final) {
-  
+
   if (fn()) { return final(); }
   setTimeout(pollUntil, t, t, fn, final);
 }

@@ -1,15 +1,15 @@
 var gui = window.nwDispatcher && window.nwDispatcher.requireNwGui();
 
-module.exports = function () { 
+module.exports = function () {
 
   if (!window.nwDispatcher) {
     return;
   }
 
   gui.Screen.Init();
-  
-  var broadcasting = false, 
-    notesShowing = false, 
+
+  var broadcasting = false,
+    notesShowing = false,
     notesWin,
     video;
 
@@ -21,14 +21,14 @@ module.exports = function () {
 
   function notes(e) {
     if (e.which !== 'n'.charCodeAt(0)) { return; }
-    
+
     if (notesShowing) {
       notesWin.close(true);
       notesShowing = false;
       return;
-    } 
+    }
     //TODO detect which screen the non-fullscreen window is on
-    var screen = gui.Screen.screens[0]; 
+    var screen = gui.Screen.screens[0];
 
     notesWin = gui.Window.open(location.href.split('#')[0] + '?notes' + location.hash, {
       toolbar: false,
@@ -64,13 +64,13 @@ module.exports = function () {
 
         var constraint = {
           mandatory: {
-            chromeMediaSource: 'desktop', 
-            chromeMediaSourceId: streamId, 
-            maxWidth: 1920, 
+            chromeMediaSource: 'desktop',
+            chromeMediaSourceId: streamId,
+            maxWidth: 1920,
             maxHeight: 1080,
             minFrameRate: 1,
             maxFrameRate: 5
-          }, 
+          },
           optional:[]
         };
 
@@ -81,24 +81,24 @@ module.exports = function () {
               broadcasting = stream;
               video.play();
               stream.onended = close;
-          }, 
+          },
           function(){ });
 
       });
 
-      function close () { 
+      function close () {
         video.src = '';
         doc.body.removeChild(video);
         broadcasting.stop();
         broadcasting = false;
       }
 
-  } 
+  }
 
 }
 
 function nop(){}
-module.exports.metaNotes = function () { 
+module.exports.metaNotes = function () {
   // if (!(window.__nwWindowId && window.nwDispatcher)) {
   //   return nop;
   // }

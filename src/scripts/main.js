@@ -33,9 +33,9 @@ function tile(opts) {
   var keyCode = opts.key.charCodeAt(0);
 
   return function (deck) {
-    addEventListener('keypress', function (e) { 
+    addEventListener('keypress', function (e) {
       if (e.which !== keyCode) { return; }
-      
+
       deck.parent.classList[
         deck.parent.classList.contains(opts.className) ?
         'remove' :
@@ -45,7 +45,7 @@ function tile(opts) {
     })
   }
 }
- 
+
 
 // Prism syntax highlighting
 // This is actually loaded from "bower_components" thanks to

@@ -6,16 +6,16 @@ var path = require('path');
 module.exports = function (opts) {
 
   opts = opts || {};
-  var args = ['serve', '--silent', 
-    '--cwd', __dirname, 
+  var args = ['serve', '--silent',
+    '--cwd', __dirname,
     '--deck', opts.deck || '""',
     '--title', opts.title];
 
-  if (opts.connect) { 
-    args.push('--connect', JSON.stringify(opts.connect)); 
+  if (opts.connect) {
+    args.push('--connect', JSON.stringify(opts.connect));
   }
   if (opts.images) {
-    args.push('--images', opts.images); 
+    args.push('--images', opts.images);
   }
   if (opts.skin) {
     args.push('--skin', opts.skin);
@@ -23,7 +23,6 @@ module.exports = function (opts) {
   if (opts.source) {
     args.push('--source', opts.source)
   }
-
 
   // process.stdout.write(path.join(__dirname, 'node_modules/.bin/gulp') + ' ' + args.join(' '))
 
@@ -34,8 +33,8 @@ module.exports = function (opts) {
   var info = gulp.stdout.pipe(
     (opts.objectMode ? through.obj : through)(function(data, enc, cb) {
       var port = (data+'').match(/http.+:([0-9]+)/);
-      cb(null, port ? 
-        opts.objectMode ? {port: port[1]} : '{"port":' + port[1] + '}\n' 
+      cb(null, port ?
+        opts.objectMode ? {port: port[1]} : '{"port":' + port[1] + '}\n'
         : '');
     }));
 

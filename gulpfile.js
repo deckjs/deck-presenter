@@ -25,8 +25,8 @@ var pkg = require('./package.json'),
   isDist = process.argv.indexOf('serve') === -1;
 
 
-  var connectCfg = 
-    gulp._connect_cfg = 
+  var connectCfg =
+    gulp._connect_cfg =
       gulp._connect_cfg || argv.connect ? JSON.parse(argv.connect) : null;
 
 if (gulp._connect_cfg) {
@@ -89,11 +89,11 @@ gulp.task('images', ['clean:images'], function() {
     .pipe(connect.reload());
 
   if (!argv.images) { return 'master'; }
-  
+
   try {
     argv.images = JSON.parse(argv.images)
   } catch (e) {}
-  
+
   if (!Array.isArray(argv.images)) {
     argv.images = [argv.images];
   }
@@ -113,7 +113,6 @@ gulp.task('md', ['clean:md'], function() {
     .pipe(gulp.dest('dist'))
     .pipe(connect.reload());
 });
-
 
 gulp.task('pdf', ['clean:pdf', 'connect'], function (done) {
   if (!argv.title) { return done(); }
@@ -165,8 +164,8 @@ gulp.task('exit', ['pdf'], function () {
 });
 
 gulp.task('connect', ['build'], function() {
-  connect.server(gulp._connect_cfg 
-    ? 
+  connect.server(gulp._connect_cfg
+    ?
       gulp._connect_cfg
     : {
       root: 'dist',
@@ -190,11 +189,11 @@ gulp.task('watch', function() {
   if (argv.skin) {
     gulp.watch(path.dirname(argv.skin) + '/**/*.styl', ['css']);
   } else {
-    gulp.watch('src/styles/skin/*.styl', ['css']);      
+    gulp.watch('src/styles/skin/*.styl', ['css']);
   }
 
-  gulp.watch('src/styles/app/*.styl', ['css']);  
-  
+  gulp.watch('src/styles/app/*.styl', ['css']);
+
 
   if (argv.images) {
     gulp.watch(argv.images + '/**/*', ['images']);
