@@ -2,11 +2,15 @@
   "name": "@deck/presenter",
   "version": "1.0.1",
   "scripts": {
-    "postinstall": "bower install"
+    "postinstall": "bower install",
+    "standard": "standard --format"
   },
   "bin": {
     "presenter": "./cmd.js"
   },
+  "pre-commit": [
+    "standard"
+  ],
   "dependencies": {
     "@deck/base-theme": "^1.0.0",
     "bespoke": "^1.0.0",
@@ -40,12 +44,14 @@
     "merge-stream": "^0.1.7",
     "mermaid": "^0.4.0",
     "minimist": "^1.1.1",
-    "opn": "^0.1.2",
     "through": "^2.3.7",
-    "through2": "^0.6.5",
-    "vinyl-source-stream": "^1.1.0"
+    "through2": "^0.6.5"
   },
   "engines": {
     "node": ">=0.10.0"
+  },
+  "devDependencies": {
+    "pre-commit": "1.1.1",
+    "standard": "5.3.1"
   }
 }
