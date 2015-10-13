@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-var master = require('./')();
+var master = require('./')()
 
-process.stdin.pipe(master);
+process.stdin.pipe(master)
 
-master.pipe(process.stdout);
+master.pipe(process.stdout)
 
-master.stderr.pipe(process.stderr);
+master.stderr.pipe(process.stderr)
