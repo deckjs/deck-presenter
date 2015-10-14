@@ -19,8 +19,8 @@ module.exports = function (opts) {
   if (opts.skin) {
     args.push('--skin', opts.skin)
   }
-  if (opts.source) {
-    args.push('--source', opts.source)
+  if (opts.code) {
+    args.push('--code', opts.code)
   }
 
   // process.stdout.write(path.join(__dirname, 'node_modules/.bin/gulp') + ' ' + args.join(' '))
