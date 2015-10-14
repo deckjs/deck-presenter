@@ -11,6 +11,13 @@
   "pre-commit": [
     "standard"
   ],
+  "files": [
+    "src",
+    "cmd.js",
+    "gulpfile.js",
+    "index.js",
+    "bower.json"
+  ],
   "dependencies": {
     "@deck/base-theme": "^1.0.0",
     "bespoke": "^1.0.0",
