@@ -3,13 +3,13 @@
   "version": "1.1.0",
   "scripts": {
     "postinstall": "bower install",
-    "standard": "standard --format"
+    "format": "standard --format"
   },
   "bin": {
     "presenter": "./cmd.js"
   },
   "pre-commit": [
-    "standard"
+    "format"
   ],
   "files": [
     "src",
