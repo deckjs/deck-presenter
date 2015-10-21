@@ -1,6 +1,6 @@
 {
   "name": "@deck/presenter",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "scripts": {
     "postinstall": "bower install",
     "format": "standard --format"
@@ -19,7 +19,7 @@
     "bower.json"
   ],
   "dependencies": {
-    "@deck/base-theme": "^1.0.1",
+    "@deck/base-theme": "^1.0.2",
     "bespoke": "^1.0.0",
     "bespoke-hash": "^1.0.0",
     "bespoke-keys": "^1.0.0",
