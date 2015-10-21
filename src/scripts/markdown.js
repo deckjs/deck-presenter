@@ -1,6 +1,5 @@
-/* global LiveReload, Prism, mermaid */
+/* global LiveReload, Prism, mermaid, location */
 var metaMd = require('bespoke-meta-markdown')
-var metaNotes = require('./app').metaNotes()
 var entities = require('entities')
 // loads to global scope :(
 require('mermaid')
@@ -88,6 +87,16 @@ function markdown () {
   })
 
   return markdown.singleton
+}
+
+function nop () {}
+function metaNotes () {
+  if (location.search !== '?notes') { return nop }
+
+  return function (slide, notes) {
+    slide.className = 'bespoke-slide deck-notes'
+    slide.innerHTML = '<aside class=deck-note>' + notes + '</aside>'
+  }
 }
 
 function MarkdownPlugin (window, host) {

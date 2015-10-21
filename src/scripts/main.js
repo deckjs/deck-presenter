@@ -10,7 +10,6 @@ var hash = require('bespoke-hash')
 var synchro = require('bespoke-synchro')
 var pdf = require('bespoke-pdf')
 var markdown = require('./markdown')
-var app = require('./app')
 
 // Bespoke.js
 bespoke.from('article', [
@@ -71,5 +70,3 @@ function fitcode (el) {
   el.style.fontSize = adjustFs + 'px'
 }
 
-// make sure app code is initalized at the very last
-app()
