@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "scripts": {
     "postinstall": "bower install",
-    "format": "standard --format",
+    "format": "standard",
     "lint": "standard"
   },
   "bin": {
