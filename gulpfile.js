@@ -18,10 +18,8 @@ var gmerge = require('gulp-merge')
 var concat = require('gulp-concat')
 var argv = require('minimist')(process.argv.slice(2))
 var mediator = require('bespoke-synchro/mediator')
-var pdf = require('bespoke-pdf')
 var isDist = process.argv.indexOf('serve') === -1
 
-var connectCfg =
 gulp._connect_cfg =
   gulp._connect_cfg || argv.connect ? JSON.parse(argv.connect) : null
 
@@ -107,16 +105,6 @@ gulp.task('md', ['clean:md'], function () {
     .pipe(connect.reload())
 })
 
-gulp.task('pdf', ['clean:pdf', 'connect'], function (done) {
-  if (!argv.title) { return done() }
-
-  return pdf(argv.title + '.pdf', 'http://localhost:' + connectCfg.port)
-    .pipe(argv['pdf-dest'] || gulp.dest('dist'))
-    .on('end', function () {
-      console.log('pdf done')
-    })
-})
-
 gulp.task('clean', function () {
   return gulp.src('dist')
     .pipe(rimraf())
@@ -144,15 +132,6 @@ gulp.task('clean:css', function () {
 
 gulp.task('clean:images', function () {
   return gulp.src('dist/images').pipe(rimraf())
-})
-
-gulp.task('clean:pdf', function (done) {
-  return gulp.src('dist/*.pdf')
-    .pipe(rimraf())
-})
-
-gulp.task('exit', ['pdf'], function () {
-  process.exit()
 })
 
 gulp.task('connect', ['build'], function () {

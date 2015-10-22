@@ -8,7 +8,7 @@ var touch = require('bespoke-touch')
 var scale = require('bespoke-scale')
 var hash = require('bespoke-hash')
 var synchro = require('bespoke-synchro')
-var pdf = require('bespoke-pdf')
+var pdf = require('bespoke-pdf-electron-helper')
 var markdown = require('./markdown')
 
 // Bespoke.js
