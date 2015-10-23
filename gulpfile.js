@@ -144,6 +144,11 @@ gulp.task('connect', ['build'], function () {
   mediator()
 })
 
+gulp.task('exit', function () {
+  if (process.disconnect) process.disconnect()
+  process.exit()
+})
+
 gulp.task('watch', function () {
   if (argv.deck) {
     gulp.watch(argv.deck, ['md'])
