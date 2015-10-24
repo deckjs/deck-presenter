@@ -2,7 +2,7 @@
 var metaMd = require('bespoke-meta-markdown')
 var entities = require('entities')
 // loads to global scope :(
-require('mermaid')
+require('mermaid/dist/mermaid-e')
 
 module.exports = markdown
 

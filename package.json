@@ -1,6 +1,6 @@
 {
   "name": "@deck/presenter",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "scripts": {
     "postinstall": "bower install",
     "lint": "standard",
@@ -49,6 +49,7 @@
     "gulp-uglify": "^0.3.1",
     "gulp-util": "^2.2.17",
     "insert-css": "^0.2.0",
+    "marked": "^0.3.2",
     "merge-stream": "^0.1.7",
     "mermaid": "^0.5.5",
     "minimist": "^1.1.1",
