@@ -52,7 +52,6 @@ function resources (opts) {
       document.body.classList[document.body.classList.contains(opts.className) ? 'remove' : 'add'](opts.className)
     })
   }
-
 }
 
 // Prism syntax highlighting
@@ -85,4 +84,3 @@ function fitcode (el) {
   el.style.lineHeight = adjustLh + 'px'
   el.style.fontSize = adjustFs + 'px'
 }
-
