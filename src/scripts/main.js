@@ -21,7 +21,8 @@ bespoke.from('article', [
   scale(),
   hash(),
   synchro(),
-  tile()
+  tile(),
+  resources()
 ])
 
 function tile (opts) {
@@ -37,6 +38,21 @@ function tile (opts) {
       deck.parent.classList[deck.parent.classList.contains(opts.className) ? 'remove' : 'add'](opts.className)
     })
   }
+}
+
+function resources (opts) {
+  opts = opts || {}
+  opts.className = opts.className || 'resources-view'
+  opts.key = opts.key || 'r'
+  var keyCode = opts.key.charCodeAt(0)
+  return function (deck) {
+    addEventListener('keypress', function (e) {
+      if (e.which !== keyCode) { return }
+
+      document.body.classList[document.body.classList.contains(opts.className) ? 'remove' : 'add'](opts.className)
+    })
+  }
+
 }
 
 // Prism syntax highlighting
