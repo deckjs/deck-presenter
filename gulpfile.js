@@ -1,7 +1,8 @@
 var gulp = require('gulp')
 var gutil = require('gulp-util')
 var plumber = require('gulp-plumber')
-var rimraf = require('gulp-rimraf')
+var del = require('del')
+var vinylPaths = require('vinyl-paths')
 var rename = require('gulp-rename')
 var connect = require('gulp-connect')
 var browserify = require('gulp-browserify')
@@ -107,31 +108,31 @@ gulp.task('md', ['clean:md'], function () {
 
 gulp.task('clean', function () {
   return gulp.src('dist')
-    .pipe(rimraf())
+    .pipe(vinylPaths(del))
 })
 
 gulp.task('clean:md', function () {
   return gulp.src('dist/index.md')
-    .pipe(rimraf())
+    .pipe(vinylPaths(del))
 })
 
 gulp.task('clean:html', function () {
   return gulp.src('dist/index.html')
-    .pipe(rimraf())
+    .pipe(vinylPaths(del))
 })
 
 gulp.task('clean:js', function () {
   return gulp.src('dist/build/build.js')
-    .pipe(rimraf())
+    .pipe(vinylPaths(del))
 })
 
 gulp.task('clean:css', function () {
   return gulp.src('dist/build/build.css')
-    .pipe(rimraf())
+    .pipe(vinylPaths(del))
 })
 
 gulp.task('clean:images', function () {
-  return gulp.src('dist/images').pipe(rimraf())
+  return gulp.src('dist/images').pipe(vinylPaths(del))
 })
 
 gulp.task('connect', ['build'], function () {

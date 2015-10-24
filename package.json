@@ -27,10 +27,11 @@
     "bespoke-meta-markdown": "^1.1.0",
     "bespoke-pdf-electron-helper": "^1.0.0",
     "bespoke-scale": "^1.0.0",
-    "bespoke-synchro": "^2.0.0",
+    "bespoke-synchro": "^3.0.0",
     "bespoke-touch": "^1.0.0",
     "bower": "^1.4.1",
     "debowerify": "^0.7.1",
+    "del": "^2.0.2",
     "duplexer": "^0.1.1",
     "entities": "^1.1.1",
     "gh-pages": "^0.2.0",
@@ -44,16 +45,16 @@
     "gulp-merge": "^0.1.0",
     "gulp-plumber": "^0.6.3",
     "gulp-rename": "^1.2.0",
-    "gulp-rimraf": "^0.1.0",
     "gulp-stylus": "^1.0.2",
     "gulp-uglify": "^0.3.1",
     "gulp-util": "^2.2.17",
     "insert-css": "^0.2.0",
     "merge-stream": "^0.1.7",
-    "mermaid": "^0.4.0",
+    "mermaid": "^0.5.5",
     "minimist": "^1.1.1",
     "through": "^2.3.7",
-    "through2": "^0.6.5"
+    "through2": "^0.6.5",
+    "vinyl-paths": "^2.0.0"
   },
   "engines": {
     "node": ">=0.10.0"
