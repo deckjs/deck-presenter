@@ -23,8 +23,6 @@ module.exports = function (opts) {
     args.push('--code', opts.code)
   }
 
-  require('fs').writeFileSync('a', path.join(__dirname, 'node_modules/.bin/gulp') + ' ' + args.join(' '))
-
   var gulp = spawn(path.join(__dirname, 'node_modules/.bin/gulp'), args, {
     stdio: ['pipe', 'pipe', 2]
   })
