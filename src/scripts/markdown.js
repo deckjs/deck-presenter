@@ -1,8 +1,9 @@
 /* global LiveReload, Prism, mermaid, location */
 var metaMd = require('bespoke-meta-markdown')
 var entities = require('entities')
+
 // loads to global scope :(
-require('mermaid/dist/mermaid-e')
+var mermaid = require('mermaid')
 
 module.exports = markdown
 
