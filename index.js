@@ -29,7 +29,7 @@ module.exports = function (opts) {
 
   var info = gulp.stdout.pipe(
     (opts.objectMode ? through.obj : through)(function (data, enc, cb) {
-      var port = (data + '').match(/http.+:([0-9]+)/)
+      var port = (data + '').match(/Server.+http.+:([0-9]+)/)
       cb(null, port
         ? opts.objectMode ? {port: port[1]} : '{"port":' + port[1] + '}\n'
         : '')
