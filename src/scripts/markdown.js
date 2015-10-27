@@ -15,8 +15,8 @@ function markdown () {
 
   var style
   markdown.singleton = metaMd({
-    notes: metaNotes,
-    note: metaNotes,
+    notes: metaNotes(),
+    note: metaNotes(),
     bull: function (slide, size) {
       var elix = Array.prototype
         .indexOf.call(slide.children, slide.querySelector('ul'))
