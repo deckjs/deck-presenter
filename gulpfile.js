@@ -25,7 +25,7 @@ gulp._connect_cfg =
   gulp._connect_cfg || argv.connect ? JSON.parse(argv.connect) : null
 
 if (gulp._connect_cfg) {
-  isDist = false
+  isDist = true
 }
 
 gulp.task('js', ['clean:js'], function () {
