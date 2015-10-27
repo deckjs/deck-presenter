@@ -1,6 +1,6 @@
 {
   "name": "@deck/presenter",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "scripts": {
     "postinstall": "bower install",
     "lint": "standard",
