@@ -1,10 +1,26 @@
 /* global LiveReload, Prism, location */
 var metaMd = require('bespoke-meta-markdown')
+var entities = require('entities')
+
+// loads to global scope :(
+var mermaid = require('mermaid')
 
 module.exports = markdown
 
 function markdown () {
   if (markdown.singleton) { return markdown.singleton }
+
+  metaMd.marked.defaults.renderer.code = (function (m) {
+    return function (code, lang, escaped) {
+      if (/dia/.test(lang)) {
+        return '<div class="mermaid">' + code + '</div>'
+      }
+
+      return entities.decodeHTML(
+        m.call(metaMd.marked.defaults.renderer, code, lang, escaped)
+      )
+    }
+  }(metaMd.marked.defaults.renderer.code))
 
   pollUntil(1000, function check () {
     check.count = ~~(check.count) + 1
@@ -98,6 +114,7 @@ MarkdownPlugin.prototype.reload = function (path, opts) {
   markdown().reload(file, this)
 
   Prism.highlightAll()
+  mermaid.init()
 
   return true
 }

@@ -24,9 +24,9 @@ var isDist = process.argv.indexOf('serve') === -1
 gulp._connect_cfg =
   gulp._connect_cfg || argv.connect ? JSON.parse(argv.connect) : null
 
-if (gulp._connect_cfg) {
-  isDist = true
-}
+// if (gulp._connect_cfg) {
+//   isDist = true
+// }
 
 gulp.task('js', ['clean:js'], function () {
   return gulp.src('src/scripts/main.js')
