@@ -23,7 +23,9 @@ module.exports = function (opts) {
     args.push('--code', opts.code)
   }
 
-  var gulp = spawn(path.join(__dirname, 'node_modules/.bin/gulp'), args, {
+  var gulp = spawn(
+    path.resolve(require.resolve('gulp'), '..', '..', '.bin', 'gulp'),
+    args, {
     stdio: ['pipe', 'pipe', 2]
   })
 
